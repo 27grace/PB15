@@ -24,28 +24,27 @@ key = ('1', '2', '3', '4', 'U', 'D', 'L', 'R')
 uart = UART(6)
 uart.init(9600, bits=8, parity=None, stop=2) 
 while True: 
-  while (uart.any()!=10): #wait we get 10 chars
-  	n=uart.any()   
-  	command = uart.read(10) #reading the ASCII code for when a button is pressed
-  key_index = command[2]-ord('1') 
-  
-  if (command[3]==ord('1')):
-  	test = 'something is pressed'
+	while (uart.any()!=10): #wait we get 10 chars
+		n=uart.any()   
+	command = uart.read(10) #reading the ASCII code for when a button is pressed
+	key_index = command[2]-ord('1') 
+	if command[3]==ord('1'):
+  		test = 'something is pressed'
   	#if U is pressed
   	if (key_index==4):
-  	action = 'UP pressed'
+  		action = 'UP pressed'
   	#if D is pressed
   	if (key_index==5):
-  	action = 'DOWN pressed'
+  		action = 'DOWN pressed'
   	#if L is pressed
   	if (key_index==6):
-  	action = 'LEFT pressed'
+ 	 	action = 'LEFT pressed'
   	#if R is pressed
   	if (key_index==7):
-  	action = 'RIGHT pressed'
-  else: 
-  	action = 'nothing pressed'
-  print ('Key ', test, '', action)
+ 	 	action = 'RIGHT pressed'
+	else: 
+	  	action = 'nothing pressed'
+print ('Key ', test, '', action))
 
 
 
