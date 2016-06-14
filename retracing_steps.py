@@ -91,9 +91,19 @@ def backward():
 	ch1.pulse_width_percent(speed) # send a pulse of width 'speed'% to motor A
 	ch2.pulse_width_percent(speed)
 
+def reset_memory():
+	memory = []
+	
+def run_memory():
+	print memory
+	for i in range(0, len(memory)-1):
+		print memory[-i] 
+# ------------------------------------------------
+
 key = ('1', '2', '3', '4', 'U', 'D', 'L', 'R') 
 uart = UART(6)
 uart.init(9600, bits=8, parity=None, stop=2) 
+memory = []
 while True: 
 	while (uart.any()!=10): #wait we get 10 chars
 		n=uart.any()   
@@ -107,12 +117,15 @@ while True:
 		if (key_index == 0):
 			action = '1 pressed'
 			stop()
+			memory.append('stop()')
   	#if 2 is pressed
 		elif (key_index==1):
 			action = '2 pressed'
+			reset_memory()
   	#if 3 is pressed
 		elif (key_index==2):
  			action = '3 pressed'
+ 			run_memory()
   	#if 4 is pressed
 		elif (key_index==3):
  			action = '4 pressed'
@@ -120,18 +133,22 @@ while True:
 		elif (key_index==4):
 			action = 'UP pressed'
 			drive(speed)
+			memory.append('drive(speed)')
   	#if D is pressed
 		elif (key_index==5):
 			action = 'DOWN pressed'
 			backward()
+			memory.append('backward()')
   	#if L is pressed
 		elif (key_index==6):
 			action = 'LEFT pressed'
 			leftturn()
+			memory.append('leftturn()')
   	#if R is pressed
 		elif (key_index==7):
 			action = 'RIGHT pressed'
 			rightturn()
+			memory.append('rightturn()')
 	else: 
 		action = 'nothing pressed'
 	print ('Key ', test, '', action)
