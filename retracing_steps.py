@@ -96,8 +96,10 @@ def reset_memory():
 	
 def run_memory():
 	print memory
+	inverse_memory=[]
 	for i in range(0, len(memory)-1):
-		print memory[-i] 
+		inverse_memory.append = memory[-i] 
+	print inverse_memory
 # ------------------------------------------------
 
 key = ('1', '2', '3', '4', 'U', 'D', 'L', 'R') 
