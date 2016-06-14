@@ -98,28 +98,28 @@ while True:
 	if command[3]==ord('1'):
   		test = 'something is pressed'
 	#if 1 is pressed
-  		if (key_index==0):
+  		elif (key_index==0):
   			action = '1 pressed'
   	#if 2 is pressed
-  		if (key_index==1):
+  		elif (key_index==1):
   			action = '2 pressed'
   	#if 3 is pressed
-  		if (key_index==2):
+  		elif (key_index==2):
  	 		action = '3 pressed'
   	#if 4 is pressed
-  		if (key_index==3):
+  		elif (key_index==3):
  	 		action = '4 pressed'
   	#if U is pressed
-  		if (key_index==4):
+  		elif (key_index==4):
   			action = 'UP pressed'
   	#if D is pressed
-  		if (key_index==5):
+  		elif (key_index==5):
   			action = 'DOWN pressed'
   	#if L is pressed
-  		if (key_index==6):
+  		elif (key_index==6):
  	 		action = 'LEFT pressed'
   	#if R is pressed
-  		if (key_index==7):
+  		elif (key_index==7):
  	 		action = 'RIGHT pressed'
 	else: 
 	  	action = 'nothing pressed'
