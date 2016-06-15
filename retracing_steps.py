@@ -23,6 +23,12 @@ tim = Timer(2, freq = 1000)
 ch1 = tim.channel(1, Timer.PWM, pin = motor1)
 ch2 = tim.channel(2, Timer.PWM, pin = motor2)
 
+# NEW: Create a microsecond counter-------------------------------
+micros = pyb.Timer(3, prescaler=83, period=0x3fffffff)
+micros.counter(0)
+start = 0	#timestamp at rising edge of echo 
+end = 0		#timestamp at falling edge of echo
+
 # Defining button functions--------------------------------------------------
 def stop():
 	ch1.pulse_width_percent(0) # send a pulse of width 0% to motor A
@@ -97,23 +103,39 @@ def reset_memory():
 def run_memory():
 	print memory
 	inverse_memory=[]
+	del times[0] #NEW: removing first element
+	inverse_times=[] #NEW: repeat a function for inversing time
 	for i in range(0, len(memory)-1):
 		inverse_memory.append = memory[-i] 
+		
 	print inverse_memory
+	
+	#NEW - to be placed after function
+	pyb.delay(inverse_times[command])
+
 # ------------------------------------------------
 
 key = ('1', '2', '3', '4', 'U', 'D', 'L', 'R') 
 uart = UART(6)
 uart.init(9600, bits=8, parity=None, stop=2) 
 memory = []
+times = []
 while True: 
 	while (uart.any()!=10): #wait we get 10 chars
 		n=uart.any()   
 	command = uart.read(10) #reading the ASCII code for when a button is pressed
 	key_index = command[2]-ord('1') 
 	action = 'none'
-	if command[3]==ord('1'):
+	if command[3]==ord('1'): 
   		test = 'something is pressed'
+  		#NEW calculating time------
+		end = microscounter()
+		time = end - start 
+		times.append(time)
+		print time #checking 
+		start = micros.counter() #NEW
+		#---------------------------
+  		
   		print (test)
 	#if 1 is pressed
 		if (key_index == 0):
