@@ -21,12 +21,6 @@ tim = Timer(2, freq = 1000)
 ch1 = tim.channel(1, Timer.PWM, pin = motor1)
 ch2 = tim.channel(2, Timer.PWM, pin = motor2)
 
-# Create a microsecond counter-------------------------------
-#micros = pyb.Timer(3, prescaler=83, period=0x3fffffff)
-#micros.counter(0)
-#start = 0	#timestamp at rising edge of echo 
-#end = 0		#timestamp at falling edge of echo
-
 # Defining button functions--------------------------------------------------
 def stop():
 	ch1.pulse_width_percent(0) # send a pulse of width 0% to motor A
