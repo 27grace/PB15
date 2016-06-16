@@ -1,5 +1,4 @@
-print('Initialising Autodrive Module')
-print('Version 1.0')
+print('ms1_roaming_car')
 
 from pyb import Pin, ADC, Timer
 
