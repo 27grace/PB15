@@ -130,7 +130,7 @@ while True:
 	if command[3]==ord('1'):
   		test = 'something is pressed'
   		print (test)
-  		end = microscounter()
+  		end = micros.counter()
   		time = end - start 
   		times.append(time)
   		print (time) #checking 
