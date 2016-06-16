@@ -121,6 +121,7 @@ def servoswing():
     pyb.delay(500)
     servo.angle(-45, 1000) # move to ready position in 1000 milisecs
     pyb.delay(500)
+    print ('swing...')
     
 #--------------------------------------------------------------------
 		
