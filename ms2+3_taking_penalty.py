@@ -2,8 +2,7 @@ import pyb
 from pyb import *
 from pyb import Pin, ADC, Timer
 
-print('Bluetooth testing')
-print('Initialising taking_penalty')
+print('ms2+ms3_taking_penalty')
 
 # Key variables --------------------------------------------------
 speed = 50 # standard driving speed
