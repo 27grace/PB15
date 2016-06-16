@@ -110,9 +110,9 @@ def run_memory():
 	print (inverse_times)
 	del times[0] 
 	#retracing steps...
-	for command in inverse_memory:
-		command()
-		pyb.delay(inverse_times[command])
+	for i in range(0, len(inverse_memory)-1):
+		inverse_memory[i]()
+		pyb.delay(inverse_times[i])
 		
 key = ('1', '2', '3', '4', 'U', 'D', 'L', 'R') 
 uart = UART(6)
