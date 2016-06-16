@@ -98,6 +98,10 @@ def reset_memory():
 	memory[:] = []
 	
 def run_memory():
+	#recording final time..
+	time = pyb.elapsed_millis(start) 
+  	times.append(time)
+  	print (time) #checking
 	#creating inverse_memory
 	inverse_memory=[]
 	for i in range(1, len(memory)+1):
