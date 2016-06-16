@@ -1,8 +1,6 @@
 import pyb
 from pyb import *
-print('Bluetooth testing')
-
-print('Initialising retracing_steps')
+print('ms2_retracing_steps')
 
 from pyb import Pin, ADC, Timer
 
