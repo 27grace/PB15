@@ -22,10 +22,10 @@ ch1 = tim.channel(1, Timer.PWM, pin = motor1)
 ch2 = tim.channel(2, Timer.PWM, pin = motor2)
 
 # Create a microsecond counter-------------------------------
-micros = pyb.Timer(3, prescaler=83, period=0x3fffffff)
-micros.counter(0)
-start = 0	#timestamp at rising edge of echo 
-end = 0		#timestamp at falling edge of echo
+#micros = pyb.Timer(3, prescaler=83, period=0x3fffffff)
+#micros.counter(0)
+#start = 0	#timestamp at rising edge of echo 
+#end = 0		#timestamp at falling edge of echo
 
 # Defining button functions--------------------------------------------------
 def stop():
@@ -120,6 +120,7 @@ uart.init(9600, bits=8, parity=None, stop=2)
 
 memory =[]
 times = []
+start = 0
 
 while True: 
 	while (uart.any()!=10): #wait we get 10 chars
@@ -130,11 +131,10 @@ while True:
 	if command[3]==ord('1'):
   		test = 'something is pressed'
   		print (test)
-  		end = micros.counter()
-  		time = end - start 
+  		time = pyb.elapsed_millis(start) 
   		times.append(time)
   		print (time) #checking 
-  		start = micros.counter()
+  		start = pyb.micros()
 	#if 1 is pressed
 		if (key_index == 0):
 			action = '1 pressed'
