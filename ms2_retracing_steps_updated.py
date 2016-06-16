@@ -133,7 +133,7 @@ while True:
   		end = microscounter()
   		time = end - start 
   		times.append(time)
-  		print time #checking 
+  		print (time) #checking 
   		start = micros.counter()
 	#if 1 is pressed
 		if (key_index == 0):
