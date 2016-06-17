@@ -3,8 +3,9 @@ from pyb import *
 from pyb import Pin, ADC, Timer
 
 print('ms2+ms3_taking_penalty')
+print('group 15: Fan & Grace')
 
-# Key variables --------------------------------------------------
+# Variable --------------------------------------------------
 speed = 50 # standard driving speed
 
 
