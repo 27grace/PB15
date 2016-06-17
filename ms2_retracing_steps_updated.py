@@ -1,10 +1,9 @@
 import pyb
 from pyb import *
 print('ms2_retracing_steps')
+print('group 15: Fan & Grace')
 
-from pyb import Pin, ADC, Timer
-
-# Key variables --------------------------------------------------
+# Variable --------------------------------------------------
 speed = 50 # standard driving speed
 
 
